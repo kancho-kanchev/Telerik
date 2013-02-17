@@ -1,0 +1,76 @@
+﻿/* =========== Task 03 ===========*/
+body {
+	background-color:#a9a9a9;
+	font-size: 19px;
+}
+
+body > footer {
+	text-align:center;
+}
+
+header {
+	text-align: center;
+	font-weight: bold;
+}
+
+article header h1 {
+	text-align: left;
+	font-size: 32px;
+}
+
+h1 {
+	color: #fafad2;
+	font-size: 46px;
+}
+
+li {
+	list-style:none;
+}
+
+li a {
+	font-size: 26px;
+	color: #fff;
+}
+
+li:last-child {
+	text-decoration:underline;
+	color: #fff;
+}
+
+a {
+	text-decoration: none;
+}
+
+p > a {
+	color: #000;
+}
+
+a:link {text-decoration:none;}
+a:visited {text-decoration:none;}
+li a:hover, .current{background-color: #d3d3d3;}
+a:active {text-decoration:none;}
+
+footer p {
+	font-size: 15px;
+}
+
+article p {
+	text-align:justify;
+    overflow: hidden;
+    width: 97%;
+    height: 1em;
+    padding-bottom: 0;
+}
+
+article:nth-child(2) {
+	display:none;
+}
+
+article > footer:before {
+    content:"turpis";
+}
+
+article:last-child > footer:last-child:before {
+    content:"ut p";
+}
+

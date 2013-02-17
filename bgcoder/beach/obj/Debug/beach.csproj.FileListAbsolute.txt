@@ -1,0 +1,9 @@
+c:\users\user\documents\visual studio 2012\Projects\bgcoder\beach\beach\bin\Debug\beach.exe.config
+c:\users\user\documents\visual studio 2012\Projects\bgcoder\beach\beach\bin\Debug\beach.exe
+c:\users\user\documents\visual studio 2012\Projects\bgcoder\beach\beach\bin\Debug\beach.pdb
+c:\users\user\documents\visual studio 2012\Projects\bgcoder\beach\beach\obj\Debug\beach.csprojResolveAssemblyReference.cache
+c:\users\user\documents\visual studio 2012\Projects\bgcoder\beach\beach\obj\Debug\beach.exe
+c:\users\user\documents\visual studio 2012\Projects\bgcoder\beach\beach\obj\Debug\beach.pdb
+C:\Users\User\Documents\Visual Studio 2012\Projects\bgcoder\beach\bin\Debug\beach.exe.config
+C:\Users\User\Documents\Visual Studio 2012\Projects\bgcoder\beach\obj\Debug\beach.exe
+C:\Users\User\Documents\Visual Studio 2012\Projects\bgcoder\beach\obj\Debug\beach.pdb

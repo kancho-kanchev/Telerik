@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>HTML Forms - Task 1 - Create a Web form</title>
+	<style type="text/css">
+		.different
+		{
+			width : 150px;
+		}
+		th
+		{
+			width : 100px;
+			border-spacing:0;
+			border : 1px solid #999999;
+			cellpadding : 0;
+			cellspacing : 0;
+			text-align : right;
+		}
+		table, td, tr
+		{
+			font: 12px Arial;
+			width : 460px;
+			border-spacing:0;
+			border : 1px solid #999999;
+<!--			cellpadding :0;
+			cellspacing :0;-->
+		}
+		td td, td table
+		{
+			width : 10px;
+			border-spacing:0;
+			border : 1px solid #999999;
+<!--			cellpadding :0;
+			cellspacing :0;-->
+		}
+		tfoot
+		{
+			text-align : center;
+			background-color : lightblue;
+		}
+   </style>	
+</head>
+<body>
+	<header>
+		<hr>
+		<h1>Create a Web form that looks like the sample</h1>
+		<hr>
+	</header>
+	<section>
+		<form name="RegisterData" action="form.asp" target="_blank">
+			<fieldset>
+				<legend>Member private data</legend>
+				<table class="RegisterDataTable" description="This is homework of lection 'forms and tables' task 1">
+				<caption>Nakov's data</caption>
+					<tfoot>
+						<tr>
+							<td colspan="4">
+								<input type="submit" value="Submit"/>
+								<input type="reset" name="resetBtn" value="Clear This Form" />
+							</td>
+						</tr>
+					</tfoot>
+					<tbody>
+						<tr>
+							<th><label for="lastName">Last Name</label></th>
+							<td colspan="3"><input type="text" required="required" name="lastName" id="lastName" value="Nakov" maxlength="40" size="40" placeholder="Last Name" autofocus="autofocus" /></td>
+						</tr>
+						<tr>
+							<th><label for="firstName">First Name</label></th>
+							<td colspan="3"><input type="text" required="required" name="firstName" id="firstName" value="Svetlin" maxlength="40" size="40" placeholder="First Name"/></td>
+						</tr>
+						<tr>
+							<th><label for="address">Address</label></th>
+							<td colspan="3"><textarea cols="29" rows="4" name="address" id="address" placeholder="Address">17 Hristo Botev Str. floor 3, apt. 12</textarea></td>
+						</tr>
+						<tr>
+							<th><label for="city">City</label></th>
+							<td><input type="text" name="city" id="city" value="Kaspichan" maxlength="20" size="20" placeholder="City"/></td>
+							<th class="different"><label for="state">State</label></th>
+							<td class="different"><input type="text" name="state" id="state" value="" maxlength="5" size="5" placeholder="State"/></td>
+						</tr>
+						<tr>
+							<th><label for="postal">Zip/Postal Code</label></th>
+							<td colspan="3"><input type="text" name="postal" id="postal" value="9325" maxlength="4" size="4" placeholder="Zip Code"/></td>
+						</tr>
+						<tr>
+							<th><label for="country">Country</label></th>
+							<td colspan="3">
+								<select name="country" id="country">
+									<option value="bg"	selected="selected">Bulgaria</option>
+									<option value="ro">Rumania</option>
+									<option value="gr">Greece</option>
+									<option value="tu">Turkey</option>
+									<option value="other">Other</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<th><label for="countryCodePhone">Phone (country code, area code, number)</label></th>
+							<td colspan="3">
+								<label for="countryCodePhone">(+</label>
+								<input type="tel" name="countryCodePhone" id="countryCodePhone" value="359" maxlength="3" size="3" placeholder="+XXX"/>
+								<label for="countryCodePhone">)</label>
+								<input type="tel" name="areaCodePhone" id="areaCodePhone" value="88" maxlength="2" size="2" placeholder="XX"/>
+								<label for="phone">-</label>
+								<input type="tel" name="phone" id="phone" value="8334343" maxlength="7" size="20" placeholder="7-digits"/>
+							</td>
+						</tr>
+						<tr>
+							<th><label for="email">E-mail</label></th>
+							<td colspan="3"><input type="email" required="required" name="email" id="email" value="nakov@kaspichan.org" maxlength="40" size="40" placeholder="valid e-mail address"/><!-- pattern="[^ @]*@[^ @].[^ @]" --></td>
+						</tr>
+						<tr>
+							<th><label for="birthDateMonth">Birth date</label></th>
+							<td colspan="3">
+								<label for="birthDateMonth">Month</label>
+								<input type="text" id="birthDateMonth" value="06" maxlength="2" size="2"/>
+								<label for="birthDateDay">Day</label>
+								<input type="text" id="birthDateDay" value="14" maxlength="2" size="2"/>
+								<label for="birthDateYear">Year (4 digit)</label>
+								<input type="text" id="birthDateYear" value="1980" maxlength="4" size="4"/>
+							</td>
+						</tr>
+						<tr>
+							<th><label for="gender">Gender</label></th>
+							<td colspan="3">
+								<select name="gender" id="gender">
+									<option value="Value 1"	selected="selected">Male</option>
+									<option value="Value 2">Female</option>
+									<option value="Value 3">Other</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<th><label for="startingDateSpring">Starting Date</label></th>
+							<td colspan="3">
+								<input type="radio" name="startingDate" id="startingDateSpring" value="Spring 2006"/>
+								<label for="startingDateSpring">Spring 2006</label>
+								<input type="radio" name="startingDate" id="startingDateSummer" value="Summer 2006"/>
+								<label for="startingDateSummer">Summer 2006</label>
+							</td>
+						</tr>
+						<tr>
+							<th><label for="comments">Comments/Questions</label></th>
+							<td colspan="3"><textarea cols="29" rows="5" name="comments" id="comments">Please send me mor information about the lodging.</textarea></td>
+						</tr>
+					</tbody>
+				</table>
+			</fieldset>
+		</form>
+	</section>
+	<footer>
+		<hr>
+		<p>&copy; 2012 K. Kanchev. All rights reserved.</p>
+	</footer>
+</body>
+</html>

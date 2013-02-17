@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>Introduction to HTML - Task 2 - ordered and unordered lists</title>
+	<style type="text/css">
+		ol.upperRoman {list-style-type:upper-roman;}
+		ol.lowerAlpha {list-style-type:lower-alpha;}
+		ul.unordCircle {list-style-type:circle;}
+		ul.unordDisc {list-style-type:disc;}
+		ul.unordSquare {list-style-type:square;}
+   </style>	
+</head>
+<body>
+	<header>
+		Hello, Stranger!
+	</header>
+	<section>
+		<h1>
+			Welcome to Runners Home&trade;
+		</h1>
+		<div>
+			<h2>
+				Preceding Text
+			</h2>
+			<ol class="upperRoman">
+				<li>
+					List item 1
+				</li>
+				<ol class="lowerAlpha">
+					<li>
+						Nested Item 1.1
+					</li>
+					<li>
+						Nested Item 1.2
+					</li>
+				</ol>
+				<li>
+					List item 2
+				</li>
+					<ol>
+						<li>
+							Nested Item 2.1
+						</li>
+						<li>
+							Nested Item 2.2
+						</li>
+						<ul class="unordCircle">
+							<li>
+								Nested Item 2.2.1
+							</li>
+							<li>
+								Nested Item 2.2.2
+							</li>
+							<ul class="unordSquare">
+								<li>
+									Nested Item 2.2.2.1
+								</li>
+								<li>
+									Nested Item 2.2.2.2
+								</li>
+							</ul>
+							<li>
+								Nested Item 2.2.3
+							</li>
+						</ul>
+						<li>
+							Nested Item 2.3
+						</li>
+					</ol>
+				<li>
+					List item 3
+				</li>
+				<ul class="unordDisc">
+					<li>
+						Nested Item 3.1
+					</li>
+					<li>
+						Nested Item 3.2
+					</li>
+					<li>
+						Nested Item 3.3
+					</li>
+				</ul>
+			</ol>
+		</div>
+	</section>
+	<footer>
+		<hr>
+		<p>&copy; 2012 K. Kanchev. All rights reserved.</p>
+	</footer>
+</body>
+</html>

@@ -1,0 +1,57 @@
+﻿/* =========== Task 01 ===========*/
+body {
+	font-family: Arial;
+	background: #595959;
+	color: #ababab;
+}
+
+h2 {
+	font-weight: 400;
+}
+
+dt {
+	float: left;
+	width: 150px;
+	text-align: left;
+	color: #fff;
+	font-style: italic;
+}
+
+dt:after {
+	content: ":";
+}
+
+dd {
+	margin-left: 150px;
+	padding-bottom: 0.5em;
+}
+
+dt:first-child + dd:before {
+	content: "·";
+	font-size: 9em;
+	vertical-align: top;
+	line-height: 20px;
+	font-family: 'Times New Roman';
+	color: #71b47a;
+	margin-left: -15px;
+	margin-right: -12px;
+}
+
+dt:first-child + dd {
+	padding-bottom: 0;
+}
+
+dd:nth-child(3) {
+	color: #f00;
+	padding-bottom: 1em;
+}
+
+dd:nth-child(2),
+dd:nth-child(5),
+dd:nth-child(10) {
+	color: #dde3a6;
+}
+
+dd:last-child {
+	color: #da6b1e;
+}

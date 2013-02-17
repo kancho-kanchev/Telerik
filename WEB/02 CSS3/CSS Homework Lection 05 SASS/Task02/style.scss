@@ -1,0 +1,21 @@
+input{
+	visibility:hidden;
+	&:checked {
+		~ img {
+			visibility:visible;
+		}
+	}
+}
+
+li {
+	display:inline;
+	>img {
+		position: absolute;
+		left: 100px;
+		top: 100px;
+		z-index: -1;
+		visibility:hidden;
+	}
+}
+
+

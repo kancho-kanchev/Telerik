@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathExpression", "MathExpression\MathExpression.csproj", "{7C371BC2-EDDA-4388-B108-23F8072C328D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeastMajorityMultiple", "LeastMajorityMultiple\LeastMajorityMultiple.csproj", "{05C74E9C-3E76-4A2C-822C-581C3A7806DB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7C371BC2-EDDA-4388-B108-23F8072C328D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C371BC2-EDDA-4388-B108-23F8072C328D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C371BC2-EDDA-4388-B108-23F8072C328D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C371BC2-EDDA-4388-B108-23F8072C328D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05C74E9C-3E76-4A2C-822C-581C3A7806DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05C74E9C-3E76-4A2C-822C-581C3A7806DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05C74E9C-3E76-4A2C-822C-581C3A7806DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05C74E9C-3E76-4A2C-822C-581C3A7806DB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

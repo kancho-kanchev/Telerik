@@ -1,0 +1,33 @@
+﻿/* =========== Task 01 ===========*/
+li{
+	list-style: none;
+	text-decoration :none;
+}
+
+li ul {
+	display: none;
+	color: #808080;
+}
+
+li a {
+	text-decoration: none;
+	color:#000;
+}
+
+ul>li:hover {
+	text-decoration:underline;
+}
+ul>li:hover ul{
+	display:block;
+}
+
+li ul li>a{
+	text-decoration:none;
+	color:#808080;
+}
+
+a {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}

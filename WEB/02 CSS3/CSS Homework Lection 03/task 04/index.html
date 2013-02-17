@@ -1,0 +1,167 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<!-- Task 04
+
+		Create a web page that looks like the Windows calculator in Programmer view
+		It should look exactly the same
+		Implement hover effects for the buttons
+		The calculator should not have any functionality
+
+	 -->
+	<meta charset="UTF-8" />
+	<title>Task 04</title>
+	<link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+	<section>
+		<div id="main_div">
+			<div id="window_buttons">
+				<img src="images/calculator_icon.png" alt="Minimize" width="32" height="32" />
+				<img src="images/calculator_icon.png" alt="Inactive" width="32" height="32" />
+				<img src="images/calculator_icon.png" alt="Close" width="32" height="32" />
+			</div>
+
+			<div id="caption">
+				<p><img src="images/calculator_icon.png" alt="icon" width="32" height="32" />Calculator</p>
+			</div>
+			<div id="nav_and_buttons">
+				<nav>
+					<ul>
+						<li>View</li>
+						<li>Edit</li>
+						<li>Help</li>
+					</ul>
+				</nav>
+				<table>
+					<thead>
+						<tr>
+							<th colspan="10"><input type="text" id="resultID" value="8854550"/></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td colspan="10">
+								<ul>
+									<li>0000</li>
+									<li>0000</li>
+									<li>0000</li>
+									<li>0000</li>
+									<li>0000</li>
+									<li>0000</li>
+									<li>0000</li>
+									<li>0000</li>
+								</ul>
+								<ul>
+									<li>63</li>
+									<li></li>
+									<li></li>
+									<li></li>
+									<li>47</li>
+									<li></li>
+									<li></li>
+									<li>32</li>
+								</ul>
+								<ul>
+									<li>0000</li>
+									<li>0000</li>
+									<li>0000</li>
+									<li>0000</li>
+									<li>0000</li>
+									<li>0000</li>
+									<li>0000</li>
+									<li>0000</li>
+								</ul>
+								<ul>
+									<li>31</li>
+									<li></li>
+									<li></li>
+									<li></li>
+									<li>15</li>
+									<li></li>
+									<li></li>
+									<li>0</li>
+								</ul>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2" rowspan="3">
+								<ul>
+									<li><input type="radio" />Hex</li>
+									<li><input type="radio" />Dec</li>
+									<li><input type="radio" />Oct</li>
+									<li><input type="radio" />Bin</li>
+								</ul>
+							</td>
+							<td><input type="button" value=""    onclick="msg()"/></td>
+							<td><input type="button" value="Mod" onclick="msg()"/></td>
+							<td><input type="button" value="A"   onclick="msg()"/></td>
+							<td><input type="button" value="MC"  onclick="msg()"/></td>
+							<td><input type="button" value="MR"  onclick="msg()"/></td>
+							<td><input type="button" value="MS"	 onclick="msg()"/></td>
+							<td><input type="button" value="M+"	 onclick="msg()"/></td>
+							<td><input type="button" value="M-"	 onclick="msg()"/></td>
+						</tr>
+						<tr>
+							<td><input type="button" value="(" onclick="msg()"/></td>
+							<td><input type="button" value=")" onclick="msg()"/></td>
+							<td><input type="button" value="B" onclick="msg()"/></td>
+							<td><input type="button" value="<" onclick="msg()"/></td>
+							<td><input type="button" value="CE" onclick="msg()"/></td>
+							<td><input type="button" value="C" onclick="msg()"/></td>
+							<td><input type="button" value="+/-" onclick="msg()"/></td>
+							<td><input type="button" value="&radic;" onclick="msg()"/></td>
+						</tr>
+						<tr>
+							<td><input type="button" value="RoL" onclick="msg()"/></td>
+							<td><input type="button" value="RoR" onclick="msg()"/></td>
+							<td><input type="button" value="C" onclick="msg()"/></td>
+							<td><input type="button" value="7" onclick="msg()"/></td>
+							<td><input type="button" value="8" onclick="msg()"/></td>
+							<td><input type="button" value="9" onclick="msg()"/></td>
+							<td><input type="button" value="/" onclick="msg()"/></td>
+							<td><input type="button" value="%" onclick="msg()"/></td>
+						</tr>
+						<tr>
+							<td colspan="2" rowspan="3">
+								<ul>
+									<li><input type="radio" />Qword</li>
+									<li><input type="radio" />Dword</li>
+									<li><input type="radio" />Word</li>
+									<li><input type="radio" />Byte</li>
+								</ul>
+							</td>
+							<td><input type="button" value="Or"  onclick="msg()"/></td>
+							<td><input type="button" value="Xor" onclick="msg()"/></td>
+							<td><input type="button" value="D"   onclick="msg()"/></td>
+							<td><input type="button" value="4"   onclick="msg()"/></td>
+							<td><input type="button" value="5"   onclick="msg()"/></td>
+							<td><input type="button" value="6"	 onclick="msg()"/></td>
+							<td><input type="button" value="*"	 onclick="msg()"/></td>
+							<td><input type="button" value="1/x" onclick="msg()"/></td>
+						</tr>
+						<tr>
+							<td><input type="button" value="Lsh" onclick="msg()"/></td>
+							<td><input type="button" value="Rsh" onclick="msg()"/></td>
+							<td><input type="button" value="E" onclick="msg()"/></td>
+							<td><input type="button" value="1" onclick="msg()"/></td>
+							<td><input type="button" value="2" onclick="msg()"/></td>
+							<td><input type="button" value="3" onclick="msg()"/></td>
+							<td><input type="button" value="-" onclick="msg()"/></td>
+							<td rowspan="2"><input type="button" value="=" onclick="msg()"/></td>
+						</tr>
+						<tr>
+							<td><input type="button" value="Not" onclick="msg()"/></td>
+							<td><input type="button" value="And" onclick="msg()"/></td>
+							<td><input type="button" value="F" onclick="msg()"/></td>
+							<td colspan="2"><input type="button" value="0" onclick="msg()"/></td>
+							<td><input type="button" value="." onclick="msg()"/></td>
+							<td><input type="button" value="+" onclick="msg()"/></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</section>
+</body>
+</html>

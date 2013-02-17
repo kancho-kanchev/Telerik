@@ -1,0 +1,14 @@
+input {
+  visibility: hidden; }
+  input:checked ~ img {
+    visibility: visible; }
+
+li {
+  display: inline; }
+  li > img {
+    position: absolute;
+    left: 100px;
+    top: 100px;
+    z-index: -1;
+    visibility: hidden; }
+

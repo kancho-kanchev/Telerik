@@ -1,0 +1,15 @@
+﻿/* =========== Task 03 ===========*/
+body {
+	width: 30%;
+}
+
+div {
+	background: #000;
+	border-radius: 25px; 
+	border: 1px solid #f00;
+	width:90%;
+}
+
+	div>div>div>div>div>div>div>div>div>div>div>div>div>div>div>div>div>div>div>div {
+		display:none;
+	}

@@ -1,0 +1,27 @@
+Line 1: using System.IO;
+Line 2: using System.Text;
+Line 3: 
+Line 4: //03. Write a program that reads a text file and
+Line 5: //inserts line numbers in front of each of its lines.
+Line 6: //The result should be written to another text file.
+Line 7: 
+Line 8: internal class FilesAddNumberLines
+Line 9: {
+Line 10: 	private static void Main()
+Line 11: 	{
+Line 12: 		using (StreamReader reader = new StreamReader("..\\..\\FilesAddNumberLines.cs", Encoding.GetEncoding("Windows-1251")))
+Line 13: 		{
+Line 14: 			using (StreamWriter writer = new StreamWriter("..\\..\\ProgramWidthLines.txt", false, Encoding.GetEncoding("Windows-1251")))
+Line 15: 			{
+Line 16: 				int lineNumber = 0;
+Line 17: 				string line = reader.ReadLine();
+Line 18: 				while (line != null)
+Line 19: 				{
+Line 20: 					lineNumber++;
+Line 21: 					writer.WriteLine("Line {0}: {1}", lineNumber, line);
+Line 22: 					line = reader.ReadLine();
+Line 23: 				}
+Line 24: 			}
+Line 25: 		}
+Line 26: 	}
+Line 27: }

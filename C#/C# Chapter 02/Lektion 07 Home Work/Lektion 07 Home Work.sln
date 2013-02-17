@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExceptionSquareRoot", "ExceptionSquareRoot\ExceptionSquareRoot.csproj", "{F8011355-DB9C-4B6D-99B9-9A88C82CC12E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExceptionReadnumberSequence", "ExeptionReadnumberSequence\ExceptionReadnumberSequence.csproj", "{A10EE1D5-F160-47F2-87EB-AAB20A909C6B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExceptionReadFile", "ExceptionReadFile\ExceptionReadFile.csproj", "{72EC0043-4983-4CF4-853F-3403E9A6659F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExceptionDownloadFileFromInternet", "ExceptionDownloadFileFromInternet\ExceptionDownloadFileFromInternet.csproj", "{5B0825A2-B121-4EC0-B797-4F2147A39AB6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F8011355-DB9C-4B6D-99B9-9A88C82CC12E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8011355-DB9C-4B6D-99B9-9A88C82CC12E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8011355-DB9C-4B6D-99B9-9A88C82CC12E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8011355-DB9C-4B6D-99B9-9A88C82CC12E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A10EE1D5-F160-47F2-87EB-AAB20A909C6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A10EE1D5-F160-47F2-87EB-AAB20A909C6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A10EE1D5-F160-47F2-87EB-AAB20A909C6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A10EE1D5-F160-47F2-87EB-AAB20A909C6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72EC0043-4983-4CF4-853F-3403E9A6659F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72EC0043-4983-4CF4-853F-3403E9A6659F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72EC0043-4983-4CF4-853F-3403E9A6659F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72EC0043-4983-4CF4-853F-3403E9A6659F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B0825A2-B121-4EC0-B797-4F2147A39AB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B0825A2-B121-4EC0-B797-4F2147A39AB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B0825A2-B121-4EC0-B797-4F2147A39AB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B0825A2-B121-4EC0-B797-4F2147A39AB6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
