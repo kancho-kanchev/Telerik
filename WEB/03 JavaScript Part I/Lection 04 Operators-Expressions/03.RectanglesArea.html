@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<!-- 03. Write an expression that calculates rectangle’s area by given width and height -->
+	<title>Task 03</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+	<style>
+		input[type=text] {
+			border: 1px solid black;
+			padding: 5px 15px;
+			background-color: black;
+			color: white;
+			font-family: Consolas;
+			margin-bottom: 5px;
+		}
+
+		a {
+			color: black;
+			border: 1px solid black;
+			padding: 5px 15px;
+			text-decoration: none;
+			display: inline-block;
+			margin: 15px 0;
+		}
+
+			a:hover {
+				text-decoration: underline;
+			}
+	</style>
+</head>
+<body>
+	<label for="tb-height">Side A: </label>
+	<input type="text" id="tb-height" />
+	<br />
+	<label for="tb-width">Side B: </label>
+	<input type="text" id="tb-width" />
+	<br />
+	<a href="#" onclick="onFindBiggerButtonClick()">Find rectangle's area</a>
+	<div id="js-console">
+	</div>
+	<script src="scripts/js-console.js">
+	</script>
+	<script>
+
+		function onFindBiggerButtonClick() {
+			var floatHeight = jsConsole.readFloat("#tb-height");
+			var floatWidth = jsConsole.readFloat("#tb-width");
+			var floatArea = floatHeight * floatWidth;
+			jsConsole.writeLine("Rectangle's area is: " + floatArea);
+		}
+	</script>
+</body>
+</html>
