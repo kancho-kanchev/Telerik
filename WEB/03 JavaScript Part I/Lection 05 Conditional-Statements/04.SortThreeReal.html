@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<!-- 04. Sort 3 real values in descending order using nested if statements.	-->
+	<title>Task 04</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+	<style>
+		input[type=text] {
+			border: 1px solid black;
+			padding: 5px 15px;
+			background-color: black;
+			color: white;
+			font-family: Consolas;
+			margin-bottom: 5px;
+		}
+
+		a {
+			color: black;
+			border: 1px solid black;
+			padding: 5px 15px;
+			text-decoration: none;
+			display: inline-block;
+			margin: 15px 0;
+		}
+
+			a:hover {
+				text-decoration: underline;
+			}
+	</style>
+</head>
+<body>
+	<p>зад. 04. Сортира 3 реални числа с вложени "if"</p>
+	<label for="tb-firstReal">Enter first real: </label>
+	<input type="text" id="tb-firstReal" onkeypress="runScript(event)" />
+	<br />
+	<label for="tb-secondReal">Enter second real: </label>
+	<input type="text" id="tb-secondReal" onkeypress="runScript(event)" />
+	<br />
+	<label for="tb-thirdReal">Enter third real: </label>
+	<input type="text" id="tb-thirdReal" onkeypress="runScript(event)" />
+	<br />
+	<a href="#" onclick="onFindBiggerButtonClick()">Sort</a>
+	<div id="js-console">
+	</div>
+	<script src="scripts/js-console.js">
+	</script>
+	<script>
+		function runScript(e) {
+			if (e.keyCode == 13) {
+				onFindBiggerButtonClick();
+			}
+		}
+
+		function onFindBiggerButtonClick() {
+			var realFirst = jsConsole.readFloat("#tb-firstReal");
+			var realSecond = jsConsole.readFloat("#tb-secondReal");
+			var realThird = jsConsole.readFloat("#tb-thirdReal");
+			if (realSecond > realFirst) {
+				realFirst = realFirst + realSecond;
+				realSecond = realFirst - realSecond;
+				realFirst = realFirst - realSecond;
+				if (realThird > realSecond) {
+					realSecond = realSecond + realThird;
+					realThird = realSecond - realThird;
+					realSecond = realSecond - realThird;
+				}
+				if (realSecond > realFirst) {
+					realFirst = realFirst + realSecond;
+					realSecond = realFirst - realSecond;
+					realFirst = realFirst - realSecond;
+				}
+			}
+			if (realThird > realSecond) {
+				realSecond = realSecond + realThird;
+				realThird = realSecond - realThird;
+				realSecond = realSecond - realThird;
+				if (realSecond > realFirst) {
+					realFirst = realFirst + realSecond;
+					realSecond = realFirst - realSecond;
+					realFirst = realFirst - realSecond;
+				}
+			}
+			//Ако не се искат вложени ифове това е много по кратко
+			//if (realThird > realSecond) {
+			//	realSecond = realSecond + realThird;
+			//	realThird = realSecond - realThird;
+			//	realSecond = realSecond - realThird;
+			//}
+			//if (realSecond > realFirst) {
+			//	realFirst = realFirst + realSecond;
+			//	realSecond = realFirst - realSecond;
+			//	realFirst = realFirst - realSecond;
+			//}
+			//if (realThird > realSecond) {
+			//	realSecond = realSecond + realThird;
+			//	realThird = realSecond - realThird;
+			//	realSecond = realSecond - realThird;
+			//}
+			if ((realFirst >= realSecond) && (realSecond >= realThird)) {
+				jsConsole.writeLine(realFirst + " > " + realSecond + " > " + realThird);
+			}
+			else {
+				jsConsole.writeLine("error");
+				jsConsole.writeLine(realFirst + " , " + realSecond + " , " + realThird);
+			}
+		}
+	</script>
+</body>
+</html>

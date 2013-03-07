@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<!-- 06. Write a script that enters the coefficients
+		a, b and c of a quadratic equation
+		a*x2 + b*x + c = 0
+
+		ax*x + b*x + c=0
+		a b c -> real
+		a != 0
+		solution -> 0, 1 or 2 real root
+		x= (-b +/- sqrt(b*b - 4ac)) / 2a
+	-->
+	<title>Task 06</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+	<style>
+		input[type=text] {
+			border: 1px solid black;
+			padding: 5px 15px;
+			background-color: black;
+			color: white;
+			font-family: Consolas;
+			margin-bottom: 5px;
+		}
+
+		a {
+			color: black;
+			border: 1px solid black;
+			padding: 5px 15px;
+			text-decoration: none;
+			display: inline-block;
+			margin: 15px 0;
+		}
+
+			a:hover {
+				text-decoration: underline;
+			}
+	</style>
+</head>
+<body>
+	<p>зад. 06. Смята квадратно уравнение</p>
+	<label for="tb-realFirst">Enter cofficient "a": </label>
+	<input type="text" id="tb-realFirst" onkeypress="runScript(event)" />
+	<br />
+	<label for="tb-realSecond">Enter coefficient "b": </label>
+	<input type="text" id="tb-realSecond" onkeypress="runScript(event)" />
+	<br />
+	<label for="tb-realThird">Enter coefficient "c": </label>
+	<input type="text" id="tb-realThird" onkeypress="runScript(event)" />
+	<br />
+	<a href="#" onclick="onFindBiggerButtonClick()">Calculate</a>
+	<div id="js-console">
+	</div>
+	<script src="scripts/js-console.js">
+	</script>
+	<script>
+		function runScript(e) {
+			if (e.keyCode == 13) {
+				onFindBiggerButtonClick();
+			}
+		}
+
+		function onFindBiggerButtonClick() {
+			var realCoeffA = jsConsole.readInteger("#tb-realFirst");
+			var realCoeffB = jsConsole.readInteger("#tb-realSecond");
+			var realCoeffC = jsConsole.readInteger("#tb-realThird");
+			var realDiscrD = 0.0;
+			var realResult1 = null;
+			var realResult2 = null;
+			realDiscrD = (realCoeffB * realCoeffB) - (4 * realCoeffA * realCoeffC);
+			if (realDiscrD >= 0) {
+				if (realDiscrD == 0) {
+					realResult1 = (realCoeffB / (2 * realCoeffA)) * (-1);
+				}
+				else {
+					realResult1 = (((-1) * realCoeffB) + Math.sqrt(realDiscrD)) / (2 * realCoeffA);
+					realResult2 = (((-1) * realCoeffB) - Math.sqrt(realDiscrD)) / (2 * realCoeffA);
+				}
+				jsConsole.writeLine("Real root's are:");
+				jsConsole.writeLine(realResult1);
+				jsConsole.writeLine(realResult2);
+			}
+			else {
+				jsConsole.writeLine("No real root's");
+			}
+		}
+	</script>
+</body>
+</html>

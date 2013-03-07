@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<!-- 05. Write script that asks for a digit and depending on the input
+		shows the name of that digit (in English) using a switch statement.
+	-->
+	<title>Task 05</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+	<style>
+		input[type=text] {
+			border: 1px solid black;
+			padding: 5px 15px;
+			background-color: black;
+			color: white;
+			font-family: Consolas;
+			margin-bottom: 5px;
+		}
+
+		a {
+			color: black;
+			border: 1px solid black;
+			padding: 5px 15px;
+			text-decoration: none;
+			display: inline-block;
+			margin: 15px 0;
+		}
+
+			a:hover {
+				text-decoration: underline;
+			}
+	</style>
+</head>
+<body>
+	<p>зад. 05. Преобразува цифра от десетична бройна с-ма в текст на английски.</p>
+	<p>(цифри са числата от 0 до 9 вкл.)</p>
+	<label for="tb-int">Enter digit: </label>
+	<input type="text" id="tb-int" onkeypress="runScript(event)" />
+	<br />
+	<a href="#" onclick="onFindBiggerButtonClick()">Convert</a>
+	<div id="js-console">
+	</div>
+	<script src="scripts/js-console.js">
+	</script>
+	<script>
+		function runScript(e) {
+			if (e.keyCode == 13) {
+				onFindBiggerButtonClick();
+			}
+		}
+
+		function onFindBiggerButtonClick() {
+			var digit = jsConsole.readInteger("#tb-int");
+			var stringDigit = "";
+			switch (digit) {
+				case 0: stringDigit = "zero"; break;
+				case 1: stringDigit = "one"; break;
+				case 2: stringDigit = "two"; break;
+				case 3: stringDigit = "three"; break;
+				case 4: stringDigit = "four"; break;
+				case 5: stringDigit = "five"; break;
+				case 6: stringDigit = "six"; break;
+				case 7: stringDigit = "seven"; break;
+				case 8: stringDigit = "eight"; break;
+				case 9: stringDigit = "nine"; break;
+				default:
+					stringDigit = "Invalid digit"; break;
+			}
+			jsConsole.writeLine(stringDigit);
+		}
+	</script>
+</body>
+</html>

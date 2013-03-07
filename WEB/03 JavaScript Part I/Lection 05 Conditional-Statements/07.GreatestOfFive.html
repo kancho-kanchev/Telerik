@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<!-- 07. Write a script that finds the greatest of given 5 variables.
+	-->
+	<title>Task 07</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+	<style>
+		input[type=text] {
+			border: 1px solid black;
+			padding: 5px 15px;
+			background-color: black;
+			color: white;
+			font-family: Consolas;
+			margin-bottom: 5px;
+		}
+
+		a {
+			color: black;
+			border: 1px solid black;
+			padding: 5px 15px;
+			text-decoration: none;
+			display: inline-block;
+			margin: 15px 0;
+		}
+
+			a:hover {
+				text-decoration: underline;
+			}
+	</style>
+</head>
+<body>
+	<p>зад. 07. Най-голямото от пет</p>
+	<label for="tb-firstReal">Enter first real: </label>
+	<input type="text" id="tb-firstReal" />
+	<br />
+	<label for="tb-secondReal">Enter second real: </label>
+	<input type="text" id="tb-secondReal" />
+	<br />
+	<label for="tb-thirdReal">Enter third real: </label>
+	<input type="text" id="tb-thirdReal" />
+	<br />
+	<label for="tb-fourthReal">Enter fourth real: </label>
+	<input type="text" id="tb-fourthReal" />
+	<br />
+	<label for="tb-fifthReal">Enter fifth real: </label>
+	<input type="text" id="tb-fifthReal" />
+	<br />
+	<a href="#" onclick="onFindBiggerButtonClick()">Find greatest</a>
+	<div id="js-console">
+	</div>
+	<script src="scripts/js-console.js">
+	</script>
+	<script>
+		function onFindBiggerButtonClick() {
+			var realNumbers = new Array();
+
+			realNumbers[0] = jsConsole.readFloat("#tb-firstReal");
+			realNumbers[1] = jsConsole.readFloat("#tb-secondReal");
+			realNumbers[2] = jsConsole.readFloat("#tb-thirdReal");
+			realNumbers[3] = jsConsole.readFloat("#tb-fourthReal");
+			realNumbers[4] = jsConsole.readFloat("#tb-fifthReal");
+			var realGreatest = realNumbers[0];
+			for (var i = 1; i < realNumbers.length; i++) {
+				if (realGreatest < realNumbers[i]) {
+					realGreatest = realNumbers[i];
+				}
+			}
+			jsConsole.writeLine(realGreatest);
+		}
+	</script>
+</body>
+</html>
