@@ -19,7 +19,7 @@ internal class BiggerThanTwo
 		}
 		else
 		{
-			result = (arrayOfInteger[index] > arrayOfInteger[index + 1]) && (arrayOfInteger[index] > arrayOfInteger[index + 1]);
+			result = (arrayOfInteger[index] > arrayOfInteger[index + 1]) && (arrayOfInteger[index] > arrayOfInteger[index - 1]);
 		}
 		return result;
 	}
@@ -48,5 +48,6 @@ internal class BiggerThanTwo
 		// Solution
 		result = CheckNeighbors(arrayOfInteger, index);
 		Console.WriteLine("{0} is bigger than its neighbors - {1}", arrayOfInteger[index], result);
+		Console.WriteLine("index: {0}", index);
 	}
 }

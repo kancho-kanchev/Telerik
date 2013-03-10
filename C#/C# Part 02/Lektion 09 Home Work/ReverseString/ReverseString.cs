@@ -29,7 +29,10 @@ internal class ReverseString
 	{
 		Console.Write("\nEnter a string: ");
 		string userInput = Console.ReadLine();
-		userInput = ReverseStr(userInput);
-		Console.WriteLine(userInput);
+		if (userInput != "")
+		{
+			userInput = ReverseStr(userInput);
+			Console.WriteLine(userInput);
+		}
 	}
 }
