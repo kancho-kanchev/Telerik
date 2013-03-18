@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<!-- 03. Write a script that finds the max and min number
+		from a sequence of numbers
+	-->
+
+	<title>Task 03</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+	<style>
+		input[type=text] {
+			border: 1px solid black;
+			padding: 5px 15px;
+			background-color: black;
+			color: white;
+			font-family: Consolas;
+			margin-bottom: 5px;
+		}
+
+		a {
+			color: black;
+			border: 1px solid black;
+			padding: 5px 15px;
+			text-decoration: none;
+			display: inline-block;
+			margin: 15px 0;
+		}
+
+			a:hover {
+				text-decoration: underline;
+			}
+	</style>
+</head>
+<body>
+	<p>зад. 01. Намира най-голямото и най-малкото число в поредица от числа</p>
+	<label for="tb-arr">Enter sequence of numbers separated by comma: </label>
+	<input type="text" id="tb-arr" onkeypress="runScript(event)" />
+	<br />
+	<a href="#" onclick="onFindBiggerButtonClick()">Find</a>
+	<div id="js-console">
+	</div>
+	<script src="scripts/js-console.js">
+	</script>
+	<script>
+		function runScript(e) {
+			if (e.keyCode == 13) {
+				onFindBiggerButtonClick();
+			}
+		}
+
+		function onFindBiggerButtonClick() {
+			var arr = jsConsole.readNumbersArray("#tb-arr", ",");
+			if (arr.length > 1) {
+				var max = arr[0];
+				var min = arr[0];
+				for (var i = 1; i < arr.length; i++) {
+					if (max < arr[i]) {
+						max = arr[i];
+					}
+					if (min > arr[i]) {
+						min = arr[i];
+					}
+				}
+				jsConsole.writeLine("max = " + max);
+				jsConsole.writeLine("min = " + min);
+			}
+			else {
+				jsConsole.writeLine("Not sequence");
+			}
+		}
+	</script>
+</body>
+</html>

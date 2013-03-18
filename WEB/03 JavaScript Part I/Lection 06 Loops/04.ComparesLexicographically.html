@@ -1,0 +1,138 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<!-- 04. Write a script that finds the lexicographically
+		smallest and largest property in document, window and navigator objects
+	-->
+
+	<title>Task 04</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+	<style>
+		input[type=text] {
+			border: 1px solid black;
+			padding: 5px 15px;
+			background-color: black;
+			color: white;
+			font-family: Consolas;
+			margin-bottom: 5px;
+		}
+
+		a {
+			color: black;
+			border: 1px solid black;
+			padding: 5px 15px;
+			text-decoration: none;
+			display: inline-block;
+			margin: 15px 0;
+		}
+
+			a:hover {
+				text-decoration: underline;
+			}
+	</style>
+</head>
+<body>
+	<p>зад. 04.  Write a script that finds the lexicographically smallest and largest property in document, window and navigator objects</p>
+	<p>
+		При лексикографската наредба символите се сравняват един по един като
+		се започва от най-левия. При несъвпадащи символи по-рано е масивът,
+		чийто текущ символ е по-рано в азбуката. При съвпадение се продължава
+		със следващия символ вдясно. Ако се стигне до края на единия масив,
+		по-краткият е лексикографски по-рано. Ако всички съответни символи от
+		двата масива съвпаднат, то масивите са еднакви и никой от тях не е
+		по-рано в лексикографската наредба.
+		Из книгата на Наков.
+		 П.С. Първо проверяваме лексикографски дали някой от двата не е по напред и
+		 ако са равни лексикографски проверяваме дължината.
+	</p>
+	<a href="#" onclick="onFindBiggerButtonClick()">Print</a>
+	<div id="js-console">
+	</div>
+	<script src="scripts/js-console.js">
+	</script>
+	<script>
+		function runScript(e) {
+			if (e.keyCode == 13) {
+				onFindBiggerButtonClick();
+			}
+		}
+
+		function compareLexicographically(first, second) {
+			var boolFirstIsBigger = true;
+			var boolSecondIsBigger = true;
+			for (var i = 0; i < Math.min(first.length, second.length) ; i++) {
+				if (first[i].toLowerCase() < second[i].toLowerCase()) {
+					boolFirstIsBigger = false;
+					break;
+				}
+				else if (first[i].toLowerCase() > second[i].toLowerCase()) {
+					boolSecondIsBigger = false;
+					break;
+				}
+			}
+			if (boolFirstIsBigger && boolSecondIsBigger) {
+				if (first.length < second.length) {
+					boolFirstIsBigger = false;
+				}
+				if (first.length > second.length) {
+					boolSecondIsBigger = false;
+				}
+			}
+			if (boolFirstIsBigger && boolSecondIsBigger) {
+				return 0;//equal
+			}
+			else if ((!boolFirstIsBigger) && boolSecondIsBigger) {
+				return 2;//second is bigger
+			}
+			else if (boolFirstIsBigger && !boolSecondIsBigger) {
+				return 1;//first is bigger
+			}
+			else {
+				jsConsole.writeLine("error");
+				return 0;
+			}
+		}
+
+		function findSmallest(object) {
+			var count = 0;
+			var smallest = '';
+			for (var property in object) {
+				if (count == 0) {
+					smallest = property;
+					count++;
+				}
+				if (compareLexicographically(property, smallest) == 1) {
+					smallest = property;
+				}
+			}
+			return smallest;
+		}
+
+		function findBigger(object) {
+			var count = 0;
+			var bigger = '';
+			for (var property in object) {
+				if (count == 0) {
+					bigger = property;
+					count++;
+				}
+				if (compareLexicographically(property, bigger) == 2) {
+					bigger = property;
+				}
+			}
+			return bigger;
+		}
+
+		function onFindBiggerButtonClick() {
+			jsConsole.writeLine("Largest property in document object is: " + findBigger(document));
+			jsConsole.writeLine("Smallest property in document object is: " + findSmallest(document));
+			jsConsole.writeLine();
+			jsConsole.writeLine("Largest property in window object is: " + findBigger(window));
+			jsConsole.writeLine("Smallest property in window object is: " + findSmallest(window));
+			jsConsole.writeLine();
+			jsConsole.writeLine("Largest property in navigator object is: " + findBigger(navigator));
+			jsConsole.writeLine("Smallest property in navigator object is: " + findSmallest(navigator));
+		}
+	</script>
+</body>
+</html>
