@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<!-- 02. Write a script that compares two char arrays lexicographically
+		(letter by letter).
+	-->
+	<!--
+		For Test Input
+	a,b,c
+	b,c,d
+	a,b,c,d
+	a,b,d
+		-->
+	<title>Task 02</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+	<style>
+		input[type=text] {
+			border: 1px solid black;
+			padding: 5px 15px;
+			background-color: black;
+			color: white;
+			font-family: Consolas;
+			margin-bottom: 5px;
+		}
+
+		a {
+			color: black;
+			border: 1px solid black;
+			padding: 5px 15px;
+			text-decoration: none;
+			display: inline-block;
+			margin: 15px 0;
+		}
+
+			a:hover {
+				text-decoration: underline;
+			}
+	</style>
+</head>
+<body>
+	<p>зад. 02. Write a program that compares two char arrays lexicographically (letter by letter).</p>
+
+	<p>
+		При лексикографската наредба символите се сравняват един по един като
+се започва от най-левия. При несъвпадащи символи по-рано е масивът,
+чийто текущ символ е по-рано в азбуката. При съвпадение се продължава
+със следващия символ вдясно. Ако се стигне до края на единия масив,
+по-краткият е лексикографски по-рано. Ако всички съответни символи от
+двата масива съвпаднат, то масивите са еднакви и никой от тях не е
+по-рано в лексикографската наредба.
+Из книгата на Наков.
+	</p>
+	<p>
+		П.С. Първо проверяваме лексикографски дали някой от двата не е по напред и
+ ако са равни лексикографски проверяваме дължината.
+	</p>
+	<p>
+		For Test Input
+		<br />
+		a,b,c
+		<br />
+		b,c,d
+		<br />
+		a,b,c,d
+		<br />
+		a,b,d
+	</p>
+	<label for="tb-arrayFirst">Enter first array separated by comma: </label>
+	<input type="text" id="tb-arrayFirst" />
+	<br />
+	<label for="tb-arraySecond">Enter second array separated by comma: </label>
+	<input type="text" id="tb-arraySecond" onkeypress="runScript(event)" />
+	<br />
+	<a href="#" onclick="onFindBiggerButtonClick()">Compare</a>
+	<div id="js-console">
+	</div>
+	<script src="scripts/js-console.js">
+	</script>
+	<script>
+		function runScript(e) {
+			if (e.keyCode == 13) {
+				onFindBiggerButtonClick();
+			}
+		}
+
+		function onFindBiggerButtonClick() {
+			//Initialize
+			var firstIsFirst = true;
+			var secondIsFirst = true;
+			var arrayFirst = jsConsole.readArray("#tb-arrayFirst", ",");
+			var arraySecond = jsConsole.readArray("#tb-arraySecond", ",");
+			for (var i = 0; i < arrayFirst.length; i++) {
+				jsConsole.write(arrayFirst[i] + " ");
+			}
+			jsConsole.writeLine("");
+			for (var i = 0; i < arraySecond.length; i++) {
+				jsConsole.write(arraySecond[i] + " ");
+			}
+			jsConsole.writeLine("");
+			//Solution
+			for (var i = 0; i < Math.min(arrayFirst.length, arraySecond.length) ; i++) {
+				if (arrayFirst[i] > arraySecond[i]) {
+					firstIsFirst = false;
+					break;
+				}
+				else if (arrayFirst[i] < arraySecond[i]) {
+					secondIsFirst = false;
+					break;
+				}
+			}
+			if (firstIsFirst && secondIsFirst) {
+				if (arrayFirst.length > arraySecond.length) {
+					firstIsFirst = false;
+				}
+				if (arrayFirst.length < arraySecond.length) {
+					secondIsFirst = false;
+				}
+			}
+			//Output
+			if (firstIsFirst && secondIsFirst) {
+				jsConsole.writeLine("The first array and second array are equal.");
+			}
+			else if (firstIsFirst && !secondIsFirst) {
+				jsConsole.writeLine("The first array is first.");
+			}
+			else if (!firstIsFirst && secondIsFirst) {
+				jsConsole.writeLine("The second array is first.");
+			}
+			else {
+				jsConsole.writeLine("Programata ne raboti pravilno");
+			}
+		}
+	</script>
+</body>
+</html>

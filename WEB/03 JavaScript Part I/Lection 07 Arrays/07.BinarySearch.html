@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<!-- 07*. Write a program that finds the index of given element
+		in a sorted array of integers by using
+		the binary search algorithm (find it in Wikipedia)
+	-->
+
+	<title>Task 07*</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+	<style>
+		input[type=text] {
+			border: 1px solid black;
+			padding: 5px 15px;
+			background-color: black;
+			color: white;
+			font-family: Consolas;
+			margin-bottom: 5px;
+		}
+
+		a {
+			color: black;
+			border: 1px solid black;
+			padding: 5px 15px;
+			text-decoration: none;
+			display: inline-block;
+			margin: 15px 0;
+		}
+
+			a:hover {
+				text-decoration: underline;
+			}
+	</style>
+</head>
+<body>
+	<p>
+		зад. 07*. Write a program that finds the index of given element in a sorted array of integers by using the binary search algorithm (find it in Wikipedia).
+	</p>
+	<p>
+		For tests<br />
+		-11, -9, -8, -6, -6, -5, -4, -4, -3, -3, -2, -2, -1, -1, 0, 1, 3, 4, 4, 5, 5, 7, 8, 9
+	</p>
+	<label for="tb-array">Enter array separated by comma: </label>
+	<input type="text" id="tb-array" />
+	<br />
+	<label for="tb-number">Enter a number: </label>
+	<input type="text" id="tb-number" onkeypress="runScript(event)" />
+	<br />
+	<a href="#" onclick="onFindBiggerButtonClick()">Find</a>
+	<div id="js-console">
+	</div>
+	<script src="scripts/js-console.js">
+	</script>
+	<script>
+		function runScript(e) {
+			if (e.keyCode == 13) {
+				onFindBiggerButtonClick();
+			}
+		}
+
+		function binarySearch(arrayOfIntegerInMetod, numberInMetod) {
+			var midPoint = 0;
+			var midPointMin = 0;
+			var midPointMax = arrayOfIntegerInMetod.length;
+			while ((midPointMax - midPointMin) > 3) {
+				midPoint = parseInt(((midPointMax - midPointMin) / 2)) + midPointMin;
+				if (arrayOfIntegerInMetod[midPoint] == numberInMetod) {
+					return midPoint;
+				}
+				if (arrayOfIntegerInMetod[midPoint] < numberInMetod) {
+					midPointMin = midPoint + 1;
+				}
+				else {
+					midPointMax = midPoint - 1;
+				}
+			}
+			for (var i = midPointMin; i <= midPointMax; i++) {
+				if (arrayOfIntegerInMetod[i] == numberInMetod) {
+					return i;
+				}
+			}
+			return (-1);
+		}
+
+		function onFindBiggerButtonClick() {
+			//Initialize
+			var number = jsConsole.readInteger("#tb-number");
+			var numberIndex = -1;
+			var arrayOfInteger = jsConsole.readNumbersArray("#tb-array", ",");
+			for (var i = 0; i < arrayOfInteger.length; i++) {
+				jsConsole.write(arrayOfInteger[i] + " ");
+			}
+			jsConsole.writeLine("");
+			// Solution
+			numberIndex = binarySearch(arrayOfInteger, number);
+
+			// Output result
+			if (numberIndex == (-1)) {
+				jsConsole.writeLine("Number: " + number + " is not found");
+				jsConsole.writeLine(numberIndex);
+			}
+			else {
+				if (numberIndex > 0) {
+					while (arrayOfInteger[numberIndex - 1] == number) {
+						if (numberIndex > 0) {
+							numberIndex--;
+						}
+						else {
+							break;
+						}
+					}
+				}
+				while (arrayOfInteger[numberIndex] == number) {
+					jsConsole.writeLine("Number: " + arrayOfInteger[numberIndex] + " is on index: " + numberIndex);
+					numberIndex++;
+				}
+			}
+			jsConsole.writeLine();
+		}
+	</script>
+</body>
+</html>

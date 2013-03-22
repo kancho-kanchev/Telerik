@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<!-- 06. Write a program that finds the most frequent number in an array. Example:
+	{4, 1, 1, 4, 2, 3, 4, 4, 1, 2, 4, 9, 3}  4 (5 times)
+
+	-->
+
+	<title>Task 06</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+	<style>
+		input[type=text] {
+			border: 1px solid black;
+			padding: 5px 15px;
+			background-color: black;
+			color: white;
+			font-family: Consolas;
+			margin-bottom: 5px;
+		}
+
+		a {
+			color: black;
+			border: 1px solid black;
+			padding: 5px 15px;
+			text-decoration: none;
+			display: inline-block;
+			margin: 15px 0;
+		}
+
+			a:hover {
+				text-decoration: underline;
+			}
+	</style>
+</head>
+<body>
+	<p>
+		зад. 06. Write a program that finds the most frequent number in an array.<br />
+		Example:<br />
+		{4, 1, 1, 4, 2, 3, 4, 4, 1, 2, 4, 9, 3}  4 (5 times).
+	</p>
+	<p>
+		For tests<br />
+		4, 1, 1, 4, 2, 3, 4, 4, 1, 2, 4, 9, 3
+	</p>
+	<label for="tb-array">Enter array separated by comma: </label>
+	<input type="text" id="tb-array" onkeypress="runScript(event)" />
+	<br />
+	<a href="#" onclick="onFindBiggerButtonClick()">Find</a>
+	<div id="js-console">
+	</div>
+	<script src="scripts/js-console.js">
+	</script>
+	<script>
+		function runScript(e) {
+			if (e.keyCode == 13) {
+				onFindBiggerButtonClick();
+			}
+		}
+
+		function onFindBiggerButtonClick() {
+			//Initialize
+			var listOfNumbers = new Array();
+			var number = 0;
+			var numberTemp = 0;
+			var countTemp = 0;
+			var count = 0;
+			var arrayOfInteger = jsConsole.readNumbersArray("#tb-array", ",");
+			for (var i = 0; i < arrayOfInteger.length; i++) {
+				jsConsole.write(arrayOfInteger[i] + " ");
+			}
+			jsConsole.writeLine("");
+			// Solution
+			for (var i = 0; i < arrayOfInteger.length; i++) {
+				numberTemp = arrayOfInteger[i];
+				countTemp = 1;
+				for (var k = i; k < arrayOfInteger.length; k++) {
+					if (numberTemp == number) {
+						break;
+					}
+					if (numberTemp == arrayOfInteger[k]) {
+						countTemp++;
+					}
+				}
+				if ((countTemp - 1) == count) {
+					listOfNumbers.push(numberTemp);
+				}
+				else if ((countTemp - 1) > count) {
+					count = countTemp - 1;
+					listOfNumbers.length = 0;
+					listOfNumbers.push(numberTemp);
+					number = numberTemp;
+				}
+			}
+
+			// Output result
+			jsConsole.write("Numbers: ");
+			for (var i = 0; i < listOfNumbers.length; i++) {
+				jsConsole.write(listOfNumbers[i] + " ");
+			}
+			jsConsole.writeLine("\nTimes:  " + count);
+			jsConsole.writeLine();
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<!-- 03. Write a script that finds the maximal sequence of equal elements in an array.
+		Example: {2, 1, 1, 2, 3, 3, 2, 2, 2, 1}  {2, 2, 2}.
+
+	-->
+
+	<title>Task 03</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+	<style>
+		input[type=text] {
+			border: 1px solid black;
+			padding: 5px 15px;
+			background-color: black;
+			color: white;
+			font-family: Consolas;
+			margin-bottom: 5px;
+		}
+
+		a {
+			color: black;
+			border: 1px solid black;
+			padding: 5px 15px;
+			text-decoration: none;
+			display: inline-block;
+			margin: 15px 0;
+		}
+
+			a:hover {
+				text-decoration: underline;
+			}
+	</style>
+</head>
+<body>
+	<p>зад. 03. Write a script that finds the maximal sequence of equal elements in an array.</p>
+	<p>
+		For tests<br />
+		2, 1, 1, 2, 3, 3, 3, 3, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1<br />
+		2, 1, 1, 2, 3, 3, 2, 2, 2, 1
+	</p>
+	<label for="tb-array">Enter array separated by comma: </label>
+	<input type="text" id="tb-array" onkeypress="runScript(event)" />
+	<br />
+	<a href="#" onclick="onFindBiggerButtonClick()">Find</a>
+	<div id="js-console">
+	</div>
+	<script src="scripts/js-console.js">
+	</script>
+	<script>
+		function runScript(e) {
+			if (e.keyCode == 13) {
+				onFindBiggerButtonClick();
+			}
+		}
+
+		function onFindBiggerButtonClick() {
+			//Initialize
+			var startIndex = 0;
+			var lenghtSeq = 1;
+			var currLenghtSeq = 1;
+			var array = jsConsole.readNumbersArray("#tb-array", ",");
+			for (var i = 0; i < array.length; i++) {
+				jsConsole.write(array[i] + " ");
+			}
+			jsConsole.writeLine("");
+			//Solution
+			for (var i = 1; i < array.length; i++) {
+				if (array[i - 1] == array[i]) {
+					currLenghtSeq++;
+				}
+				else {
+					if (lenghtSeq < currLenghtSeq) {
+						lenghtSeq = currLenghtSeq;
+						startIndex = i - lenghtSeq;
+					}
+					currLenghtSeq = 1;
+				}
+			}
+			if (lenghtSeq < currLenghtSeq) {
+				lenghtSeq = currLenghtSeq;
+				startIndex = array.length - lenghtSeq;
+				currLenghtSeq = 1;
+			}
+			//output result
+			jsConsole.writeLine("Lenght of sequence " + lenghtSeq + ", start index is " + startIndex + " and is:");
+			for (var i = startIndex; i < startIndex + lenghtSeq; i++) {
+				jsConsole.write(array[i] + " ");
+			}
+			jsConsole.writeLine();
+		}
+	</script>
+</body>
+</html>
