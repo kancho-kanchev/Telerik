@@ -1,0 +1,49 @@
+﻿<html>
+<head>
+	<!-- 04. Write a function to count the number of divs on the web page -->
+	<title>Task 04</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+	<div id="js-console">
+		<a href="01.LastDigitAnEnglish.html">Task 01</a>
+		<a href="02.ReversesTheDigits.html">Task 02</a>
+		<a href="03.FindsWordInAText.html">Task 03</a>
+		<a href="04.CountDivs.html">Task 04</a>
+		<a href="05.HowManyTimesNumberAppears.html">Task 05</a>
+		<a href="06.BiggerFromNeighbors_01.html">Task 06</a>
+		<a href="07.BiggerFromNeighbors_02.html">Task 07</a>
+		<div>
+			<p>
+				04. Write a function to count the number of divs on the web page
+			</p>
+			<label for="tb-tag">Enter a tag or leave blank for tag &#60;div&#62;: </label>
+			<input type="text" id="tb-tag" onkeypress="runScript(event)" />
+			<a href="#" onclick="onFindBiggerButtonClick()">Count</a>
+		</div>
+	</div>
+	<script src="scripts/js-console.js"></script>
+	<script type="text/javascript">
+		function runScript(e) {
+			if (e.keyCode == 13) {
+				onFindBiggerButtonClick();
+			}
+		}
+
+		function countTag(tag) {
+			tag = tag || "div";
+			var count = document.getElementsByTagName(tag).length;
+			return count;
+		}
+
+		function onFindBiggerButtonClick() {
+			var tag = jsConsole.read("#tb-tag");
+			jsConsole.writeLine("Count of tag &#60;div&#62; is: " + countTag());
+			if (!(tag === "")) {
+				jsConsole.writeLine("Count of tag &#60;" + tag + "&#62; is: " + countTag(tag));
+			}
+			jsConsole.writeLine();
+		}
+	</script>
+</body>
+</html>

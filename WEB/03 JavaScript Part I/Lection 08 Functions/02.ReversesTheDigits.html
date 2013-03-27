@@ -1,0 +1,57 @@
+﻿<html>
+<head>
+	<!-- 02. Write a function that reverses the digits of given decimal number.
+		Example: 256  652
+	-->
+	<title>Task 02</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+	<div id="js-console">
+		<a href="01.LastDigitAnEnglish.html">Task 01</a>
+		<a href="02.ReversesTheDigits.html">Task 02</a>
+		<a href="03.FindsWordInAText.html">Task 03</a>
+		<a href="04.CountDivs.html">Task 04</a>
+		<a href="05.HowManyTimesNumberAppears.html">Task 05</a>
+		<a href="06.BiggerFromNeighbors_01.html">Task 06</a>
+		<a href="07.BiggerFromNeighbors_02.html">Task 07</a>
+		<div>
+			<p>
+				02. Write a function that reverses the digits of given decimal number.<br />
+				Example: 256  652
+			</p>
+			<p>
+				Коментар: в условието не е указано как да се третират отрицателни числа. Ако е<br />
+				необходимо знака минус да се отстрани или да се остави отпред се прави една<br />
+				проверка за N<0 и един цикъл изключващ индекс 0.
+			</p>
+			<label for="tb-number">Enter a number: </label>
+			<input type="text" id="tb-number" onkeypress="runScript(event)" />
+			<a href="#" onclick="onFindBiggerButtonClick()">Reverse</a>
+		</div>
+	</div>
+	<script src="scripts/js-console.js"></script>
+	<script type="text/javascript">
+		function runScript(e) {
+			if (e.keyCode == 13) {
+				onFindBiggerButtonClick();
+			}
+		}
+
+		function reversesTheDigits(number) {
+			var numberStr = number.toString();
+			numberStr = numberStr.split("");
+			var reversedNumber = "";
+			for (var i = numberStr.length - 1; i >= 0; i--) {
+				reversedNumber = reversedNumber + numberStr[i];
+			}
+			return reversedNumber;
+		}
+
+		function onFindBiggerButtonClick() {
+			var number = jsConsole.readInteger("#tb-number");
+			jsConsole.writeLine(reversesTheDigits(number));
+		}
+	</script>
+</body>
+</html>

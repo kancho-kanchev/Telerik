@@ -1,0 +1,65 @@
+﻿<html>
+<head>
+	<!-- 01. Write a function that returns the last digit of given integer as an English word.
+		Examples: 512  "two", 1024  "four", 12309  "nine"
+	-->
+	<title>Task 01</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+	<div id="js-console">
+		<a href="01.LastDigitAnEnglish.html">Task 01</a>
+		<a href="02.ReversesTheDigits.html">Task 02</a>
+		<a href="03.FindsWordInAText.html">Task 03</a>
+		<a href="04.CountDivs.html">Task 04</a>
+		<a href="05.HowManyTimesNumberAppears.html">Task 05</a>
+		<a href="06.BiggerFromNeighbors_01.html">Task 06</a>
+		<a href="07.BiggerFromNeighbors_02.html">Task 07</a>
+		<div>
+			<p>
+				01. Write a function that returns the last digit of given integer<br />
+				as an English word.<br />
+				Examples: 512  "two", 1024  "four", 12309  "nine"
+			</p>
+			<label for="tb-number">Enter a number: </label>
+			<input type="text" id="tb-number" onkeypress="runScript(event)" />
+			<a href="#" onclick="onFindBiggerButtonClick()">Print</a>
+		</div>
+	</div>
+	<script src="scripts/js-console.js"></script>
+	<script type="text/javascript">
+		function runScript(e) {
+			if (e.keyCode == 13) {
+				onFindBiggerButtonClick();
+			}
+		}
+
+		function onFindBiggerButtonClick() {
+			var number = jsConsole.readInteger("#tb-number");
+			jsConsole.writeLine(lastDigitAnEnglish(number));
+		}
+
+		function lastDigitAnEnglish(number) {
+			var digitAnText = "";
+			var digitAnEnglish =
+							[["0", "Zero"],
+							["1", "One"],
+							["2", "Two"],
+							["3", "Three"],
+							["4", "Four"],
+							["5", "Five"],
+							["6", "Six"],
+							["7", "Seven"],
+							["8", "Eight"],
+							["9", "Nine"]];
+			var digit = number % 10;
+			for (var i = 0; i < digitAnEnglish.length ; i++) {
+				if (digitAnEnglish[i][0] == String(digit)) {
+					digitAnText = digitAnEnglish[i][1];
+				}
+			}
+			return digitAnText.toString();
+		}
+	</script>
+</body>
+</html>

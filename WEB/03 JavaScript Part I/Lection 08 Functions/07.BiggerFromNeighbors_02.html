@@ -1,0 +1,98 @@
+﻿<html>
+<head>
+	<!-- 07. Write a Function that returns the index of the first
+		element in array that is bigger than its neighbors, or -1,
+		if there’s no such element.
+		Use the function from the previous exercise.
+	-->
+	<title>Task 07</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+	<div id="js-console">
+		<a href="01.LastDigitAnEnglish.html">Task 01</a>
+		<a href="02.ReversesTheDigits.html">Task 02</a>
+		<a href="03.FindsWordInAText.html">Task 03</a>
+		<a href="04.CountDivs.html">Task 04</a>
+		<a href="05.HowManyTimesNumberAppears.html">Task 05</a>
+		<a href="06.BiggerFromNeighbors_01.html">Task 06</a>
+		<a href="07.BiggerFromNeighbors_02.html">Task 07</a>
+		<div>
+			<p>
+				07. Write a Function that returns the index of the first element in array<br />
+				that is bigger than its neighbors, or -1, if there’s no such element.<br />
+				Use the function from the previous exercise.
+			</p>
+			<p>
+				Тъй като в условоето се изисква да се използва функцията от задача 6<br />
+				приемам и подусловията от съответната
+			</p>
+			<p>
+				For tests<br />
+				10, 8, -7, -10, -6, 1, 8, -7, -10, -6<br />
+				2, 3, 4, 5, 6, 7, 6, 3, -8, 3<br />
+				-5, -3, -1, 0, 1, 2, 3, 4, 5, 6<br />
+				2, 2, 2, 2, 6, 7, 7, 7, 8, 8
+			</p>
+			<label for="tb-array">Enter array separated by comma: </label>
+			<input type="text" id="tb-array" onkeypress="runScript(event)" />
+			<a href="#" onclick="onFindBiggerButtonClick()">Find</a>
+		</div>
+	</div>
+	<script src="scripts/js-console.js"></script>
+	<script type="text/javascript">
+		function runScript(e) {
+			if (e.keyCode == 13) {
+				onFindBiggerButtonClick();
+			}
+		}
+
+		function checkIndexInArray(arr, index) {
+			var boolResult = true;
+			if (index < arr.length) {
+				if (index > 0) if (arr[index - 1] >= arr[index]) {
+					boolResult = false;
+				}
+				if (index < arr.length - 1) if (arr[index] <= arr[index + 1]) {
+					boolResult = false;
+				}
+			}
+			else {
+				boolResult = false;
+			}
+			return boolResult;
+		}
+
+		function searchFirstBiggerNumberThanItsNeighbors(arrayOfInteger) {
+			var index = -1;
+			for (var i = 0; i < arrayOfInteger.length; i++) {
+				if (checkIndexInArray(arrayOfInteger, i)) {
+					index = i;
+					break;
+				}
+			}
+			return index;
+		}
+
+		function onFindBiggerButtonClick() {
+			var arrayOfInteger = jsConsole.readNumbersArray("#tb-array", ",");
+			var result = -2;
+			// Solution
+			result = searchFirstBiggerNumberThanItsNeighbors(arrayOfInteger);
+			if (result > -2) {
+				if (result > -1) {
+					jsConsole.writeLine("The index of the first element in array that is bigger than its neighbors is: ");
+					jsConsole.writeLine(result);
+				}
+				else {
+					jsConsole.writeLine("There’s no such element in array that is bigger than its neighbors!");
+					jsConsole.writeLine(result);
+				}
+			}
+			else {
+				jsConsole.writeLine("Error!!!");
+			}
+		}
+	</script>
+</body>
+</html>

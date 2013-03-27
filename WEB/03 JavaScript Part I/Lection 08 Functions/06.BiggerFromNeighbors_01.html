@@ -1,0 +1,79 @@
+﻿<html>
+<head>
+	<!-- 06. Write a function that checks if the element at given position
+		in given array of integers is bigger than its two neighbors
+		(when such exist).
+
+	-->
+	<title>Task 06</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+	<div id="js-console">
+		<a href="01.LastDigitAnEnglish.html">Task 01</a>
+		<a href="02.ReversesTheDigits.html">Task 02</a>
+		<a href="03.FindsWordInAText.html">Task 03</a>
+		<a href="04.CountDivs.html">Task 04</a>
+		<a href="05.HowManyTimesNumberAppears.html">Task 05</a>
+		<a href="06.BiggerFromNeighbors_01.html">Task 06</a>
+		<a href="07.BiggerFromNeighbors_02.html">Task 07</a>
+		<div>
+			<p>
+				06. Write a function that checks if the element at given position in given<br />
+				array of integers is bigger than its two neighbors (when such exist).
+			</p>
+			<p>Тъй като в условоето не е уточнено си добавям следните подусловия:<br />
+				- ако подаденият индекс е извън масива пак връща "false"<br />
+				- ако подаденият индекс е в единия край на масива то той има един съседен<br />
+				и се сравнява само с него.
+			</p>
+			<p>
+				For tests<br />
+				10, 8, -7, -10, -6, 1, 8, -7, -10, -6<br />
+				2, 3, -6, -1, 2, -1, 6, 3, -8, 3<br />
+				4, 3, 1, 4, 2, 5, 8, 3, 1, 4<br />
+				-4, 6, -7, 8, 6, -10, -3, 0, 6, -7<br />
+				2, 1, 2, 4, 3, 5, 2, 6, 1, 2
+			</p>
+			<label for="tb-array">Enter array separated by comma: </label>
+			<input type="text" id="tb-array" /><br />
+			<label for="tb-index">Enter index: </label>
+			<input type="text" id="tb-index" onkeypress="runScript(event)" />
+			<a href="#" onclick="onFindBiggerButtonClick()">Check</a>
+		</div>
+	</div>
+	<script src="scripts/js-console.js"></script>
+	<script type="text/javascript">
+		function runScript(e) {
+			if (e.keyCode == 13) {
+				onFindBiggerButtonClick();
+			}
+		}
+
+		function checkIndexInArray(arr, index) {
+			var boolResult = true;
+			if (index < arr.length) {
+				if (index > 0) if (arr[index - 1] >= arr[index]) {
+					boolResult = false;
+				}
+				if (index < arr.length - 1) if (arr[index] <= arr[index + 1]) {
+					boolResult = false;
+				}
+			}
+			else {
+				boolResult = false;
+			}
+			return boolResult;
+		}
+
+		function onFindBiggerButtonClick() {
+			var arrayOfInteger = jsConsole.readNumbersArray("#tb-array", ",");
+			var index = jsConsole.readInteger("#tb-index");
+			var boolResult = true;
+			// Solution
+			boolResult = checkIndexInArray(arrayOfInteger, index);
+			jsConsole.writeLine("index " + index + " is bigger: " + boolResult + ";");
+		}
+	</script>
+</body>
+</html>

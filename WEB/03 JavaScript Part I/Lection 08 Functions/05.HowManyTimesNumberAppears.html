@@ -1,0 +1,127 @@
+﻿<html>
+<head>
+	<!-- 05. Write a function that counts how many times
+		given number appears in given array.
+		Write a test function to check if the function is working correctly
+	-->
+	<title>Task 05</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+	<div id="js-console">
+		<a href="01.LastDigitAnEnglish.html">Task 01</a>
+		<a href="02.ReversesTheDigits.html">Task 02</a>
+		<a href="03.FindsWordInAText.html">Task 03</a>
+		<a href="04.CountDivs.html">Task 04</a>
+		<a href="05.HowManyTimesNumberAppears.html">Task 05</a>
+		<a href="06.BiggerFromNeighbors_01.html">Task 06</a>
+		<a href="07.BiggerFromNeighbors_02.html">Task 07</a>
+		<div>
+			<p>
+				05. Write a function that counts how many times given number appears in given<br />
+				array. Write a test function to check if the function is working correctly
+			</p>
+			<p>
+				For tests<br />
+				10, 8, -7, -10, -6, 1, 8, -7, -10, -6, 1, 8, -7, -10, -6, 1<br />
+				2, 3, -6, -1, 2, -1, 6, 3, -8, 3, 3, -6, -1, 2, -1, 6, 3, -8, 3<br />
+				4, 3, 1, 4, 2, 5, 8, 3, 1, 4, 2, 5, 8, 3, 1, 4, 2, 5, 8<br />
+				-4, 6, -7, 8, 6, -10, -3, 0, 6, -7, 8, 6, -10, -3, 0<br />
+				2, 1, 2, 4, 3, 5, 2, 6, 1, 2, 4, 3, 5, 2, 6, 1, 2, 4, 3, 5, 2, 6
+			</p>
+			<label for="tb-array">Enter array separated by comma: </label>
+			<input type="text" id="tb-array" /><br />
+			<label for="tb-number">Enter number: </label>
+			<input type="text" id="tb-number" onkeypress="runScript(event)" />
+			<a href="#" onclick="onFindBiggerButtonClick()">Count</a>
+			<a href="#" onclick="onTestBiggerButtonClick()">Test</a>
+		</div>
+	</div>
+	<script src="scripts/js-console.js"></script>
+	<script type="text/javascript">
+		function runScript(e) {
+			if (e.keyCode == 13) {
+				onFindBiggerButtonClick();
+			}
+		}
+
+		function countNumberInArray(arr, number) {
+			var count = 0;
+			for (var i = 0; i < arr.length; i++) {
+				if (arr[i] == number) {
+					count++;
+				}
+			}
+			return count;
+		}
+
+		function onTestBiggerButtonClick() {
+			var count = 0;
+			var boolResult = true;
+			var arrayOfInteger = [10, 8, 0, -10, -6, 1, 8, 0, -10, -6, 1, 8, -7, -10, 0, 1];
+			//test positive
+			var number = 8;
+			count = countNumberInArray(arrayOfInteger, number);
+			jsConsole.write("Test positive number: ");
+			if (count == 3) jsConsole.writeLine("passed");
+			else {
+				jsConsole.writeLine("NOT passed");
+				boolResult = false;
+			}
+			//test negative
+			number = -10;
+			count = countNumberInArray(arrayOfInteger, number);
+			jsConsole.write("Test negative number: ");
+			if (count == 3) jsConsole.writeLine("passed");
+			else {
+				jsConsole.writeLine("NOT passed");
+				boolResult = false;
+			}
+			//test first index
+			number = 10;
+			count = countNumberInArray(arrayOfInteger, number);
+			jsConsole.write("Test first index: ");
+			if (count == 1) jsConsole.writeLine("passed");
+			else {
+				jsConsole.writeLine("NOT passed");
+				boolResult = false;
+			}
+			//test last index
+			number = 1;
+			count = countNumberInArray(arrayOfInteger, number);
+			jsConsole.write("Test last index: ");
+			if (count == 3) jsConsole.writeLine("passed");
+			else {
+				jsConsole.writeLine("NOT passed");
+				boolResult = false;
+			}
+			//test zero
+			number = 0;
+			count = countNumberInArray(arrayOfInteger, number);
+			jsConsole.write("Test number zero: ");
+			if (count == 3) jsConsole.writeLine("passed");
+			else {
+				jsConsole.writeLine("NOT passed");
+				boolResult = false;
+			}
+			if (boolResult) {
+				jsConsole.writeLine("================");
+				jsConsole.writeLine("All tests passed");
+			}
+			else {
+				jsConsole.writeLine("================");
+				jsConsole.writeLine("Tests NOT passed");
+			}
+		}
+
+		function onFindBiggerButtonClick() {
+			var arrayOfInteger = jsConsole.readNumbersArray("#tb-array", ",");
+			var number = jsConsole.readInteger("#tb-number");
+			var count = 0;
+			// Solution
+			count = countNumberInArray(arrayOfInteger, number);
+			jsConsole.writeLine("number: " + number + "; count: " + count + ";");
+		}
+	</script>
+</body>
+</html>
