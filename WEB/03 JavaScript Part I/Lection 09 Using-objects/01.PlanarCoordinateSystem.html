@@ -1,0 +1,121 @@
+﻿<html>
+<head>
+	<!-- 01. Write functions for working with shapes in standard Planar coordinate system
+			- Points are represented by coordinates P(X, Y)
+			- Lines are represented by two points, marking their beginning and ending
+			L(P1(X1,Y1),P2(X2,Y2))
+			- Calculate the distance between two points
+			- Check if three lines can form a triangle
+	-->
+	<title>Task 01</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+	<div id="js-console">
+		<a href="01.PlanarCoordinateSystem.html">Task 01</a>
+		<a href="02.RemovesElements.html">Task 02</a>
+		<a href="03.FindsWordInAText.html">Task 03</a>
+		<a href="04.CountDivs.html">Task 04</a>
+		<a href="05.HowManyTimesNumberAppears.html">Task 05</a>
+		<a href="06.BiggerFromNeighbors_01.html">Task 06</a>
+		<div>
+			<p>
+				01. Write functions for working with shapes in<br />
+				standard Planar coordinate system<br />
+				- Points are represented by coordinates P(X, Y)<br />
+				- Lines are represented by two points, marking their beginning and ending<br />
+				L(P1(X1,Y1),P2(X2,Y2))<br />
+				- Calculate the distance between two points<br />
+				- Check if three lines can form a triangle
+			</p>
+			<p>
+				For tests<br />
+				1,1,2, 2 , 4,4 , 3,3 , 5, 5, 6,6<br />
+				1, 2,2, 2,2, 2,3, 1,3, 1,1, 2<br />
+				-1,1,2, 2 , -4,4 , 3,-3 , 5, 5, 6,6
+			</p>
+			<label for="tb-array">Enter 12 numbers separated by comma: </label>
+			<br />
+			<input type="text" id="tb-array" onkeypress="runScript(event)" />
+			<a href="#" onclick="onBiggerButtonClick()">Run</a>
+		</div>
+	</div>
+	<script src="scripts/js-console.js"></script>
+	<script type="text/javascript">
+		function runScript(e) {
+			if (e.keyCode == 13) {
+				onBiggerButtonClick();
+			}//
+		}
+
+		//function getPointFromArray (array) {
+		//	var onePoint = new Array(array.length);
+		//	for (var i = 0; i < array.length; i++) {
+		//		onePoint[i] = parseFloat(array[i]);
+		//	}
+		//	return onePoint;
+		//}
+		//var pointFirst = getPointFromArray(arrayOf[0].split(","));
+		//function getDistance(pointOne, pointTwo) {
+		//	var distance = Math.sqrt((pointTwo[0] - pointOne[0]) * (pointTwo[0] - pointOne[0]) +
+		//							(pointTwo[1] - pointOne[1]) * (pointTwo[1] - pointOne[1]));
+		//	return distance;
+		//}
+
+		function getPoint(x, y) {
+			this.x = x;
+			this.y = y;
+			this.toString = function () {
+				return String("point(" + this.x + ", " + this.y + ")");
+			};
+		}
+
+		function getLine(pointOne, pointTwo) {
+			this.beginPoint = pointOne;
+			this.endPoint = pointTwo;
+			this.distance = function () {
+				dist = Math.sqrt((this.beginPoint.x - this.endPoint.x) * (this.beginPoint.x - this.endPoint.x)
+					+ (this.beginPoint.y - this.endPoint.y) * (this.beginPoint.y - this.endPoint.y));
+				return dist;
+			}
+			this.toString = function () {
+				return String("Line begins at: " + this.beginPoint.toString() + " ends at: " + this.endPoint.toString()
+					+ " and have distance: " + this.distance());
+			}
+		}
+
+		function checkTriangle(a, b, c) {
+			return (((a.distance() + b.distance()) > c.distance()) &&
+					((a.distance() + c.distance()) > b.distance()) &&
+					((b.distance() + c.distance()) > a.distance()));
+		}
+
+		function onBiggerButtonClick() {
+			var arrayOfNumbers = jsConsole.readNumbersArray("#tb-array", ",");
+			var pointFirst = new getPoint(arrayOfNumbers[0], arrayOfNumbers[1]);
+			var pointSecond = new getPoint(arrayOfNumbers[2], arrayOfNumbers[3]);
+			var pointThird = new getPoint(arrayOfNumbers[4], arrayOfNumbers[5]);
+			var pointFourth = new getPoint(arrayOfNumbers[6], arrayOfNumbers[7]);
+			var pointFifth = new getPoint(arrayOfNumbers[8], arrayOfNumbers[9]);
+			var pointSixth = new getPoint(arrayOfNumbers[10], arrayOfNumbers[11]);
+			var lineFirst = new getLine(pointFirst, pointSecond);
+			var lineSecond = new getLine(pointThird, pointFourth);
+			var lineThird = new getLine(pointFifth, pointSixth);
+			var isTriangleBool = checkTriangle(lineFirst, lineSecond, lineThird);
+			jsConsole.writeLine(pointFirst.toString());
+			jsConsole.writeLine(pointSecond.toString());
+			jsConsole.writeLine(pointThird.toString());
+			jsConsole.writeLine(pointFourth.toString());
+			jsConsole.writeLine(pointFifth.toString());
+			jsConsole.writeLine(pointSixth.toString());
+			jsConsole.writeLine("a ->" + lineFirst.toString());
+			jsConsole.writeLine("b ->" + lineSecond.toString());
+			jsConsole.writeLine("c ->" + lineThird.toString());
+			jsConsole.writeLine("Length a = " + lineFirst.distance());
+			jsConsole.writeLine("Length b = " + lineSecond.distance());
+			jsConsole.writeLine("Length c = " + lineThird.distance());
+			jsConsole.writeLine("Check if three lines can form a triangle: " + checkTriangle(lineFirst, lineSecond, lineThird));
+		}
+	</script>
+</body>
+</html>

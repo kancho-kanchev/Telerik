@@ -1,0 +1,78 @@
+﻿<html>
+<head>
+	<!-- 02. Write a function that removes all elements with a given value
+		***********************************************
+		var arr = [1,2,1,4,1,3,4,1,111,3,2,1,"1"];
+		arr.remove(1); //arr = [2,4,3,4,111,3,2,"1"];
+		***********************************************
+		Attach it to the array class
+		Read about prototype and how to attach methods
+	-->
+	<title>Task 02</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+	<div id="js-console">
+		<a href="01.PlanarCoordinateSystem.html">Task 01</a>
+		<a href="02.RemovesElements.html">Task 02</a>
+		<a href="03.DeepCopy.html">Task 03</a>
+		<a href="04.CountDivs.html">Task 04</a>
+		<a href="05.HowManyTimesNumberAppears.html">Task 05</a>
+		<a href="06.BiggerFromNeighbors_01.html">Task 06</a>
+		<div>
+			<p>
+				02. Write a function that removes all elements with a given value<br />
+				***********************************************<br />
+				var arr = [1,2,1,4,1,3,4,1,111,3,2,1,"1"];<br />
+				arr.remove(1); //arr = [2,4,3,4,111,3,2,"1"];<br />
+				***********************************************<br />
+				Attach it to the array class<br />
+				Read about prototype and how to attach methods
+			</p>
+			<p>
+				For tests<br />
+				1,2,1,4,1,3,4,1,11,-3,2,1,"1",-5
+			</p>
+			<label for="tb-array">Enter numbers separated by comma: </label>
+			<input type="text" id="tb-array" />
+			<br />
+			<label for="tb-element">Enter element to remove: </label>
+			<input type="text" id="tb-element" onkeypress="runScript(event)" />
+			<a href="#" onclick="onBiggerButtonClick()">Remove</a>
+		</div>
+	</div>
+	<script src="scripts/js-console.js"></script>
+	<script type="text/javascript">
+		function runScript(e) {
+			if (e.keyCode == 13) {
+				onBiggerButtonClick();
+			}
+		}
+
+		Array.prototype.removeElements = function (element) {
+			var arr = [];
+			for (var i = 0; i < this.length; i++) {
+				if (!(this[i] == element)) {
+					arr.push(this[i]);
+				}
+			}
+			return arr;
+		}
+
+		function onBiggerButtonClick() {
+			var arrayOf = jsConsole.readArray("#tb-array", ",");
+			var myElement = jsConsole.read("#tb-element");
+			jsConsole.writeLine();
+			for (var i = 0; i < arrayOf.length; i++) {
+				jsConsole.write(arrayOf[i] + " ");
+			}
+			jsConsole.writeLine();
+			jsConsole.writeLine(myElement);
+			arrayOf = arrayOf.removeElements(myElement);
+			for (var i = 0; i < arrayOf.length; i++) {
+				jsConsole.write(arrayOf[i] + " ");
+			}
+		}
+	</script>
+</body>
+</html>
