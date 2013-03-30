@@ -57,7 +57,7 @@
 		intWriteSimbol = intWriteSimbol + 2;
 		//***************************************Console.WriteLine(rowToWrite);
 		stringResult = stringResult + stringRowToWrite + "\r\n";
-		rowToWrite = "";
+		stringRowToWrite = "";
 	}
 	intHeightOfTheTree = intNumberX - 1;
 	intCountRow = intHeightOfTheTree;
