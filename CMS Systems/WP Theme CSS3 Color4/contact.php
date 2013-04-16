@@ -59,7 +59,8 @@ Template Name: Contacts
 			$number_2 = rand(1, 9);
 			$answer = substr(md5($number_1+$number_2),5,10);
 		?>
-		<form id="contact" action="contact.php" method="post">
+		<form id="contact" action="" method="post">
+		<!-- <form id="contact" action="contact.php" method="post"> -->
 			<div class="form_settings">
 			<p><span>Name</span><input class="contact" type="text" name="your_name" value="<?php echo $yourname; ?>" /></p>
 			<p><span>Email Address</span><input class="contact" type="text" name="your_email" value="<?php echo $youremail; ?>" /></p>
