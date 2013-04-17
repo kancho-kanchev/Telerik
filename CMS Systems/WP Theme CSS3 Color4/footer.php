@@ -17,14 +17,10 @@
 </div>
 <p>&nbsp;</p>
 <!-- javascript at the bottom for fast page loading -->
-<script type="text/javascript" src="<?php echo get_template_directory_uri() ?>/js/jquery.js"></script>
-<script type="text/javascript" src="<?php echo get_template_directory_uri() ?>/js/jquery.easing-sooper.js"></script>
-<script type="text/javascript" src="<?php echo get_template_directory_uri() ?>/js/jquery.sooperfish.js"></script>
-<script type="text/javascript">
-jQuery(document).ready(function($) {
-	$('ul.sf-menu').sooperfish();
-});
-</script>
+<!-- <script type="text/javascript" src="<?php echo get_template_directory_uri() ?>/js/jquery.js"></script> -->
+<!-- <script type="text/javascript" src="<?php echo get_template_directory_uri() ?>/js/jquery.easing-sooper.js"></script> -->
+<!-- <script type="text/javascript" src="<?php echo get_template_directory_uri() ?>/js/jquery.sooperfish.js"></script> -->
+<!-- <script type="text/javascript" src="<?php echo get_template_directory_uri() ?>/js/scripts.js"></script> -->
 <?php wp_footer(); ?>
 </body>
 </html>

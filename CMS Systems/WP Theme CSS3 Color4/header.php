@@ -17,7 +17,7 @@
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 	<link rel="stylesheet" type="text/css" href="<?php bloginfo("stylesheet_url"); ?>" />
 	<!-- modernizr enables HTML5 elements and feature detects -->
-	<script type="text/javascript" src="<?php echo get_template_directory_uri() ?>/js/modernizr-1.5.min.js"></script>
+	<!-- <script type="text/javascript" src="<?php echo get_template_directory_uri() ?>/js/modernizr-1.5.min.js"></script> -->
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
