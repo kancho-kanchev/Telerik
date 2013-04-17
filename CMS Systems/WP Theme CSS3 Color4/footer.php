@@ -21,7 +21,7 @@
 <script type="text/javascript" src="<?php echo get_template_directory_uri() ?>/js/jquery.easing-sooper.js"></script>
 <script type="text/javascript" src="<?php echo get_template_directory_uri() ?>/js/jquery.sooperfish.js"></script>
 <script type="text/javascript">
-$(document).ready(function() {
+jQuery(document).ready(function($) {
 	$('ul.sf-menu').sooperfish();
 });
 </script>
