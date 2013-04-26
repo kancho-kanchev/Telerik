@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>DOM Manipulation - Create random divs</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<style>
+		#content {
+			width: 1000px;
+			height: 500px;
+			border: 5px solid darkgrey;
+			background-color: lightgrey;
+			position: absolute;
+		}
+
+			#content div.styled {
+				border: 1px solid black;
+				text-align: center;
+				margin: 5px;
+				display: inline-block;
+				position: absolute;
+			}
+
+			#content div.divToRotate {
+				left: 475px;
+				top: 225px;
+				width: 50px;
+				height: 50px;
+				line-height: 50px;
+				font-size: 40px;
+				color: green;
+				border: 2px solid green;
+				border-radius: 30px;
+				background-color: #ffd800;
+				text-align: center;
+				position: absolute;
+			}
+	</style>
+</head>
+<body>
+	<input type="text" id="number" />
+	<a href="#" id="generate" onclick="createRandomDivs()">Generate</a>
+	<p>1.Write a script that creates a number of div elements.Each div element must have the following</p>
+	<ul>
+		<li>Random width and height between 20px and 100px </li>
+		<li>Random background color</li>
+		<li>Random font color</li>
+		<li>Random position on the screen (position:absolute)</li>
+		<li>A strong element with text "div" inside the div</li>
+		<li>Random border-radius</li>
+		<li>Random border color</li>
+		<li>Random border-width between 1px and 20px</li>
+	</ul>
+	<div id="content"></div>
+	<script>
+		function createRandomDivs(number) {
+			'use strict';
+			var contentDiv = document.getElementById('content');
+			var documentFragment = document.createDocumentFragment();
+			var numberOfDivs = document.getElementById('number').value | 0;
+			var count = 0, randomDiv, top, left;
+			while (contentDiv.firstChild) {
+				contentDiv.removeChild(contentDiv.firstChild);
+			}
+			while (count < numberOfDivs) {
+				randomDiv = document.createElement('div');
+				randomDiv.className = 'styled';
+				randomDiv.innerHTML = '<strong>div</strong>';
+				randomDiv.style.width = generateRandomNum(20, 100) + 'px';
+				randomDiv.style.height = randomDiv.style.width;
+				randomDiv.style.borderWidth = generateRandomNum(1, 20) + 'px';
+				randomDiv.style.borderRadius = generateRandomNum(0, 40) + 'px';
+				randomDiv.style.borderColor = generateRandomColor();
+				top = generateRandomNum(0, 390);
+				randomDiv.style.top = top + 'px';
+				left = generateRandomNum(0, 900);
+				randomDiv.style.left = left + 'px';
+				randomDiv.style.fontSize = parseInt(randomDiv.style.width) / 2 + 'px';
+				randomDiv.style.lineHeight = parseInt(randomDiv.style.width) + 'px';
+				randomDiv.style.background = generateRandomColor();
+				randomDiv.style.color = generateRandomColor();
+				documentFragment.appendChild(randomDiv);
+				count++;
+			}
+			contentDiv.appendChild(documentFragment);
+		}
+
+		function generateRandomNum(min, max) {
+			return Math.floor((Math.random() * (max - min)) + min);
+		}
+
+		function generateRandomColor() {
+			var red = generateRandomNum(0, 255);
+			var green = generateRandomNum(0, 255);
+			var blue = generateRandomNum(0, 255);
+			return 'rgb(' + red + ',' + green + ',' + blue + ')';
+		}
+	</script>
+</body>
+</html>

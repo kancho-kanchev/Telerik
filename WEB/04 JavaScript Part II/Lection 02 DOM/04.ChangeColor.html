@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>DOM Manipulation - Create a text area and two inputs with type="color"</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+	<style>
+		div ul {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+			border: 2px solid black;
+			float: left;
+		}
+
+		div ul li {
+			width: 500px;
+			height: 50px;
+			border: 1px solid gray;
+			padding: 10px;
+		}
+
+		input {
+			float: right;
+		}
+	</style>
+</head>
+<body>
+	<p>4.Create a text area and two inputs with type="color"</p>
+	<ul>
+		<li>Make the font color of the text area as the value of the first color input</li>
+		<li>Make the background color of the text area as the value of the second input</li>
+	</ul>
+	<div>
+		<ul>
+			<li>Font color:<input type='color' id='fontColor' onchange='changeFontColor()' />
+			</li>
+			<li>Background color:<input type='color' id='backgroundColor' onchange='changeBackgroundColor()' />
+			</li>
+			<li>
+				<textarea>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eu quam non orci facilisis semper.
+        Pellentesque eleifend leo nec ante egestas pharetra. Fusce sagittis, ante cursus congue bibendum,
+        metus ipsum dignissim magna, vel varius lectus ante et velit. Etiam faucibus faucibus neque.
+        Pellentesque volutpat vulputate ligula in varius. Nulla vehicula leo vel leo cursus lobortis.
+        Aliquam at justo dolor, rhoncus scelerisque felis. Suspendisse quis diam turpis, a imperdiet sem.</textarea>
+			</li>
+		</ul>
+	</div>
+	<script>
+		var textArea = document.getElementsByTagName('textarea')[0];
+
+		function changeFontColor() {
+			var fontColor = document.getElementById('fontColor').value;
+
+			textArea.style.color = fontColor;
+		}
+
+		function changeBackgroundColor() {
+			var background = document.getElementById('backgroundColor').value;
+
+			textArea.style.backgroundColor = background;
+		}
+	</script>
+</body>
+</html>
