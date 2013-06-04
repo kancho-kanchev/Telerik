@@ -1,3 +1,5 @@
+http://cmswordpress.kanchev.telerik-students.org/
+
 
 1. Install WAMP at home, set up Apache properly
 
@@ -9,8 +11,8 @@
 
 5. Pick a template from http://www.css3templates.co.uk/ and convert it to a simple WordPresstemplate. The theme should be:
 
-•Activated properly
+ï¿½Activated properly
 
-•Working landing page with static content
+ï¿½Working landing page with static content
 
-•Working blog index with latest blogs
+ï¿½Working blog index with latest blogs
