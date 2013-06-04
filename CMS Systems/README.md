@@ -7,8 +7,10 @@
 
 4. Create a PHP form that accepts 3 fields -number, sign and another number. The form should submit to another PHP file which validates the input and calculates based on the numbers and the mathematical symbol. Use JavaScript for frontend validation of the form.
 
-5. Pick a template from http://www.css3templates.co.uk/and convert it to a simple WordPresstemplate. The theme should be:
+5. Pick a template from http://www.css3templates.co.uk/ and convert it to a simple WordPresstemplate. The theme should be:
 
 •Activated properly
+
 •Working landing page with static content
+
 •Working blog index with latest blogs
